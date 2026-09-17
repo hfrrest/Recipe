@@ -1,4 +1,4 @@
-* {
+﻿* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -62,8 +62,14 @@ h3 {
 }
 
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 80px;
   display: flex;
+  z-index: 50;
+  background-color: white;
 }
 
 img {
@@ -93,6 +99,7 @@ NAVBAR
   display: flex;
   align-items: center;
   list-style-type: none;
+  text-decoration: none;
 }
 
 .nav__link {
@@ -102,6 +109,10 @@ NAVBAR
   color: #10552f;
   font-weight: bold;
   padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: Verdana, sans-serif;
 }
 
 .nav__link:hover {
@@ -156,8 +167,12 @@ NAVBAR
 }
 
 .menu__link {
-  color: white;
+  color: rgb(7, 2, 2);
   font-size: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: Verdana, sans-serif;
 }
 
 .btn__menu--close {
@@ -330,13 +345,25 @@ LANDING
 }
 
 .error {
-  color: #e74c3c;
+  color: #10552f;
   text-align: center;
   font-size: 18px;
+  font-weight: 900;
   padding: 18px;
-  background: rgba(63, 29, 25, 0.1);
+  background: rgba(245, 244, 244, 0.2);
   border-radius: 48px;
   border: 1px solid rgba(78, 31, 26, 0.2);
+}
+
+.warning {
+  color: #10552f;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  padding: 18px;
+  background: #e6b800;
+  border-radius: 48px;
+  border: 1px solid rgba(204, 204, 0, 0.2);
 }
 
 .no-results {
@@ -518,10 +545,17 @@ h2 {
   }
 
   .nav__link {
-    font-size: 16px;
-    margin-left: 8px;
-    padding: 6px;
-  }
+  margin-left: 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #10552f;
+  font-weight: bold;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: Verdana, sans-serif;
+}
 
   h1 {
     font-size: 28px;
@@ -570,3 +604,239 @@ h2 {
     padding: 16px;
   }
 }
+/* Ingredient Search Page Styles */
+#ingredient-page {
+  min-height: 100vh;
+  padding-bottom: 48px;
+}
+
+.ingredient-search {
+  width: 100%;
+  padding: 24px;
+}
+
+.ingredient-search__header {
+  text-align: center;
+  margin-bottom: 48px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.ingredient-search__header h1 {
+  color: white;
+  font-size: 48px;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ingredient-search__subtitle {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 18px;
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+
+.ingredient-search .search-container {
+  display: flex;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.ingredient-search__input {
+  flex: 1;
+  padding: 16px 24px;
+  font-size: 18px;
+  border: 2px solid #bbbbbb;
+  border-radius: 50px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.ingredient-search__input:focus {
+  border-color: #00843c;
+  box-shadow: 0 0 0 4px rgba(9, 51, 28, 0.2);
+  transform: translateY(-2px);
+}
+
+.ingredient-search__btn {
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #1fc66b 0%, #10552f 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(19, 157, 31, 0.3);
+  white-space: nowrap;
+}
+
+.ingredient-search__btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 132, 60, 0.4);
+}
+
+.ingredient-search__btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.ingredient-search__btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.nav__link--active {
+  color: #1fc66b !important;
+  border-bottom: 2px solid #1fc66b;
+}
+
+.menu__link--active {
+  color: #1fc66b !important;
+}
+
+header {
+  padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+  .ingredient-search__header h1 {
+    font-size: 32px;
+  }
+
+  .ingredient-search__subtitle {
+    font-size: 16px;
+  }
+
+  .ingredient-search .search-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ingredient-search__input,
+  .ingredient-search__btn {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+}
+
+
+/* User Avatar Styles */
+.user-avatar-container {
+  position: relative;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1fc66b 0%, #10552f 100%);
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(31, 198, 107, 0.3);
+}
+
+.user-avatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(31, 198, 107, 0.5);
+}
+
+.avatar-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 220px;
+  z-index: 100;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.avatar-dropdown-header {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #f8f8f8;
+}
+
+.avatar-dropdown-item {
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.avatar-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.avatar-dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.avatar-dropdown-item.logout {
+  color: #d32f2f;
+  font-weight: 500;
+}
+
+.avatar-dropdown-item.logout:hover {
+  background-color: #ffebee;
+}
+
+/* Mobile Menu User Info */
+.mobile-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #f8f8f8;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+.mobile-user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1fc66b 0%, #10552f 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+
