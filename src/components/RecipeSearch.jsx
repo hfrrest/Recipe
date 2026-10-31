@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import RecipeCard from './RecipeCard';
-import { searchRecipesWithDetails, getRecipeInformation, addToShoppingList } from '../utils/recipeAPI';
+import { searchRecipesWithDetails, getRecipeInformation } from '../utils/recipeAPI';
 
 function RecipeSearch({ searchQuery, onSelectRecipe, user, onAddToGroceryList }) {
   const [recipes, setRecipes] = useState([]);
